@@ -25,8 +25,19 @@ IF EXIST %cd%\venv\. (
     venv\scripts\activate
     echo STEP 3: Upgrade Python PIP
     python -m pip install --upgrade pip
+	echo STEP 4: Install "wheel"
+	pip install wheel
+    IF EXIST requirements.txt (
+		IF NOT EXIST setup.py ( 
+			echo STEP 5: Install Dependencies from requirements.txt
+			python -m pip install -r requirements.txt 
+		)
+	)
+	IF EXIST setup.py ( 
+       echo STEP 5: Install Dependencies from setup.py
+       python -m pip install -e .
+    )
     echo COMPLETE: Python Virtual Enviroment
-    IF EXIST requirements.txt ( python -m pip install -r requirements.txt )
 )
 
 
