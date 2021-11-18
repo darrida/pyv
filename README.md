@@ -18,6 +18,7 @@
         - Create a python virtual environment named ```venv```
         - Activate the new virtual environment
         - Upgrade pip to the latest version
+        - Install "wheel"
         - If a requirements.txt file is present, pyv will install specified dependencies
 
 ### Delete python virtual environment
